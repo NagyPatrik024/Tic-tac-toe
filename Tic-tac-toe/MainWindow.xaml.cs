@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tic_tac_toe.Logic;
 
 namespace Tic_tac_toe
 {
@@ -23,6 +24,25 @@ namespace Tic_tac_toe
         public MainWindow()
         {
             InitializeComponent();
+            TicTacToeLogic logic = new TicTacToeLogic();
+            display.SetupModel(logic);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            display.InvalidateVisual();
         }
     }
 }

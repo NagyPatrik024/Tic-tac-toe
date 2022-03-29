@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_tac_toe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        xmlns:renderer="clr-namespace:Tic_tac_toe.Render"
+        Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseDown">
+    <Grid x:Name="grid">
+        <renderer:Display x:Name="display"></renderer:Display>
     </Grid>
 </Window>
