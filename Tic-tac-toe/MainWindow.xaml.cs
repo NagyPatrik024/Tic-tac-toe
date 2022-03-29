@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tic_tac_toe.Controller;
 using Tic_tac_toe.Logic;
 
 namespace Tic_tac_toe
@@ -21,11 +22,13 @@ namespace Tic_tac_toe
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameController _controller;
         public MainWindow()
         {
             InitializeComponent();
             TicTacToeLogic logic = new TicTacToeLogic();
             display.SetupModel(logic);
+            _controller = new GameController(logic);
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -42,6 +45,7 @@ namespace Tic_tac_toe
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //_controller.MouseLeftDown();
             display.InvalidateVisual();
         }
     }

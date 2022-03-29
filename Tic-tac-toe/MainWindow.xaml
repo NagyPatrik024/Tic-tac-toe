@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Tic_tac_toe"
         mc:Ignorable="d"
         xmlns:renderer="clr-namespace:Tic_tac_toe.Render"
-        Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseDown">
+        Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseDown" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
     <Grid x:Name="grid">
         <renderer:Display x:Name="display"></renderer:Display>
     </Grid>

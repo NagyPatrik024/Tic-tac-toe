@@ -30,6 +30,12 @@ namespace Tic_tac_toe.Render
             base.OnRender(drawingContext);
             if (_model != null && _size.Width == _size.Height && _size.Width == 3)
             {
+                double rectWidth = _size.Width / _model.GameMatrix.GetLength(1);
+                double rectHeight = _size.Height / _model.GameMatrix.GetLength(0);
+
+                drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 2),
+                    new Rect(0, 0, _size.Width, _size.Height));
+
                 for (int i = 0; i < _model.GameMatrix.GetLength(0); i++)
                 {
                     for (int j = 0; j < _model.GameMatrix.GetLength(1); j++)
@@ -43,9 +49,14 @@ namespace Tic_tac_toe.Render
                             case 'O':
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "o.png"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            default:
+                            default:                     
                                 break;
                         }
+
+                        drawingContext.DrawRectangle(brush
+                                    , new Pen(Brushes.Black, 0),
+                                    new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight)
+                                    );
                     }
                 }
             }
