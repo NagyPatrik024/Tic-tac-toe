@@ -28,7 +28,7 @@ namespace Tic_tac_toe.Render
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
-            if (_model != null && _size.Width == _size.Height && _size.Width == 3)
+            if (_model != null && _size.Width > 50 &&_size.Height > 50)
             {
                 double rectWidth = _size.Width / _model.GameMatrix.GetLength(1);
                 double rectHeight = _size.Height / _model.GameMatrix.GetLength(0);

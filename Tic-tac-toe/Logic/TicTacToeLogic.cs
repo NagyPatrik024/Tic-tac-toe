@@ -23,12 +23,12 @@ namespace Tic_tac_toe.Logic
 
             int i2 = rnd.Next(0, 3);
             int j2 = rnd.Next(0, 3);
-            while (GameMatrix[i2, j2] != null)
+            while (GameMatrix[i2, j2] != 0)
             {
                 i2 = rnd.Next(0, 3);
                 j2 = rnd.Next(0, 3);
             }
-            GameMatrix[i2, j2] = '0';
+            GameMatrix[i2, j2] = 'O';
         }
     }
 }

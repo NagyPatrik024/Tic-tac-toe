@@ -45,7 +45,7 @@ namespace Tic_tac_toe
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //_controller.MouseLeftDown();
+            _controller.MouseLeftDown((int)Math.Floor(e.GetPosition(this).Y / 100),(int)Math.Floor(e.GetPosition(this).X / 100));
             display.InvalidateVisual();
         }
     }
