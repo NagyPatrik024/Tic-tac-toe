@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Tic_tac_toe.Logic;
 
 namespace Tic_tac_toe.Render
@@ -32,7 +34,18 @@ namespace Tic_tac_toe.Render
                 {
                     for (int j = 0; j < _model.GameMatrix.GetLength(1); j++)
                     {
-                        
+                        ImageBrush brush = new ImageBrush();
+                        switch (_model.GameMatrix[i, j])
+                        {
+                            case 'X':
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "x.png"), UriKind.RelativeOrAbsolute)));
+                                break;
+                            case 'O':
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", "o.png"), UriKind.RelativeOrAbsolute)));
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }
