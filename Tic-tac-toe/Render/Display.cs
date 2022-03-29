@@ -28,13 +28,13 @@ namespace Tic_tac_toe.Render
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
-            if (_model != null && _size.Width == _size.Height && _size.Width == 3)
+            if (_model != null && _size.Width > 50 && _size.Height > 50)
             {
                 double rectWidth = _size.Width / _model.GameMatrix.GetLength(1);
                 double rectHeight = _size.Height / _model.GameMatrix.GetLength(0);
 
-                drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 2),
-                    new Rect(0, 0, _size.Width, _size.Height));
+                //drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 2),
+                //    new Rect(0, 0, _size.Width, _size.Height));
 
                 for (int i = 0; i < _model.GameMatrix.GetLength(0); i++)
                 {
@@ -54,11 +54,12 @@ namespace Tic_tac_toe.Render
                         }
 
                         drawingContext.DrawRectangle(brush
-                                    , new Pen(Brushes.Black, 0),
+                                    , new Pen(Brushes.Black, 4),
                                     new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight)
                                     );
                     }
                 }
+
             }
         }
     }

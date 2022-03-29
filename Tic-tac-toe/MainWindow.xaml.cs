@@ -29,6 +29,7 @@ namespace Tic_tac_toe
             TicTacToeLogic logic = new TicTacToeLogic();
             display.SetupModel(logic);
             _controller = new GameController(logic);
+
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -45,7 +46,37 @@ namespace Tic_tac_toe
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //_controller.MouseLeftDown();
+            var p = e.GetPosition(this);
+            int x = 0;
+            int y = 0;
+            double segedx = ActualWidth / 3;
+            double segedy = ActualHeight / 3;
+            if (p.X <= segedx)
+            {
+                x = 0;
+            }
+            else if (p.X >= segedx && p.X <= (ActualWidth * 0.66))
+            {
+                x = 1;
+            }
+            else if(p.X >= segedx * 0.66)
+            {
+                x = 2;
+            }
+
+            if (p.Y <= segedy)
+            {
+                y = 0;
+            }
+            else if (p.Y >= segedy && p.Y <= ActualHeight * 0.66)
+            {
+                y = 1;
+            }
+            else if (p.Y >= segedy * 0.66)
+            {
+                y = 2;
+            }
+            _controller.MouseLeftDown(y,x);
             display.InvalidateVisual();
         }
     }
