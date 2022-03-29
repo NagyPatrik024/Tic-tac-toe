@@ -16,5 +16,9 @@ namespace Tic_tac_toe.Controller
             this.control = control;
         }
 
+        public void MouseLeftDown(int i, int j)
+        {
+            control.Place(i, j);
+        }
     }
 }
