@@ -33,8 +33,6 @@ namespace Tic_tac_toe.Render
                 double rectWidth = _size.Width / _model.GameMatrix.GetLength(1);
                 double rectHeight = _size.Height / _model.GameMatrix.GetLength(0);
 
-                //drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 2),
-                //    new Rect(0, 0, _size.Width, _size.Height));
 
                 for (int i = 0; i < _model.GameMatrix.GetLength(0); i++)
                 {
